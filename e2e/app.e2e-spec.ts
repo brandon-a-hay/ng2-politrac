@@ -1,10 +1,10 @@
-import { MyAppPage } from './app.po';
+import { politracPage } from './app.po';
 
-describe('MyApp App', () => {
-  let page: MyAppPage;
+describe('politrac App', () => {
+  let page: politracPage;
 
   beforeEach(() => {
-    page = new MyAppPage();
+    page = new politracPage();
   });
 
   it('should display message saying app works', () => {

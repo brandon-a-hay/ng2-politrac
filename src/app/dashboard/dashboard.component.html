@@ -1,3 +1,24 @@
-<p>
-  dashboard works!
-</p>
+Select bills that were: 
+<a class="waves-effect waves-light btn" (click)="refresh('introduced')">Introduced</a>
+<a class="waves-effect waves-light btn" (click)="refresh('updated')">Updated</a>
+<a class="waves-effect waves-light btn" (click)="refresh('passed')">Passed</a>
+<a class="waves-effect waves-light btn" (click)="refresh('major')">Major</a>
+
+<div class="card-panel" *ngFor="let bill of legislation | async">
+  <span class="title">{{ bill.title }}</span>
+  <p>{{ bill.introduced_date }} | {{ bill.committees }}</p>
+  <div *ngIf="!bill.details">
+    <a class="waves-effect waves-light" (click)="getBillDetails(bill.number)">View details</a>
+  </div>
+  <div *ngIf="bill.details">
+    <div class="card-content">
+      <h5>Details</h5>
+      <p>{{ bill.details.summary }}</p>
+      <div class="chip">
+        <img src="https://theunitedstates.io/images/congress/original/{{ bill.details.sponsor_id }}.jpg" alt="{{bill.details.sponsor}}">
+        {{ bill.details.sponsor }} ({{ bill.details.sponsor_party }} - {{ bill.details.sponsor_state }})
+      </div>
+      <div *ngIf="bill.details.primary_subject" class="chip">{{ bill.details.primary_subject }}</div>
+    </div>
+  </div>
+</div>

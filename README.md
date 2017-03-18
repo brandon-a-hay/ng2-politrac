@@ -1,4 +1,4 @@
-# MyApp
+# politrac
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0-rc.2. This is a starter kit for building new projects with angular 2.
 
